@@ -14,3 +14,4 @@ def find_customers_bought_all_models(purchase_data_df, product_data_df):
         .agg(collect_set('product_model').alias('collect_list')) \
         .filter(size('collect_list') == distinct_models_count) \
         .select(purchase_data_df['customer'])
+
