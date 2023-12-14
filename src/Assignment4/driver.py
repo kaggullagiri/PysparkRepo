@@ -1,11 +1,11 @@
 from pyspark.sql import SparkSession
-from utils import *
+from PysparkRepo/src/Assignment4/util import *
 
 if __name__ == "__main__":
     spark = SparkSession.builder.appName("ReadJSON").getOrCreate()
 
     # Read JSON data with dynamic schema inference
-    df = read_json_data(spark, r"C:\Users\Admin\OneDrive\Desktop\Pyspark Assignment\Output_files\Q4\Nested_json_file.json")
+    df = read_json_data(spark, r"C:/Users/giri/OneDrive/Desktop/Pyspark Assignment/Nested_json_file.json")
     df.show()
 
     # Perform various operations using functions from the utils file
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     df = flatten_json_data(df)
     df.show()
 
-    df_with_schema = define_custom_schema(spark, r"C:\Users\Admin\OneDrive\Desktop\Pyspark Assignment\Output_files\Q4\Nested_json_file.json")
+    df_with_schema = define_custom_schema(spark, r"C:/Users/giri/OneDrive/Desktop/Pyspark Assignment/Nested_json_file.json")
     df_with_date_columns = add_date_columns(df_with_schema)
     df_with_date_columns.show()
 
