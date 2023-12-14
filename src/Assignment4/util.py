@@ -3,7 +3,7 @@ from pyspark.sql.types import *
 
 def read_json_data(spark, file_path):
     df = spark.read.option("multiline", "true").json(file_path)
-    return df
+    return df 
 
 def get_record_count(df):
     return df.count()
