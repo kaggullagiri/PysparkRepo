@@ -3,8 +3,6 @@ from pyspark.sql.functions import *
 
 from PysparkRepo/src/Assignment1/util.py import *
 
-
-
 # Sample data
 purchase_data = [(1, "A"), (1, "B"), (2, "A"), (2, "B"), (3, "A"), (3, "B"),
                 (1, "C"), (1, "D"), (1, "E"), (3, "E"), (4, "A")]
