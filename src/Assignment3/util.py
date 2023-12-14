@@ -14,6 +14,7 @@ def create_dataframe(spark):
     ]
     columns = ['log_id', 'user_id', 'user_activity', 'time_stamp']
     return spark.createDataFrame(data, columns)
+    
 
 def actions_performed_last_7_days(df):
     return df.groupBy('user_id').count()
