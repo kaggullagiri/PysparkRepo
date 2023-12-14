@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from PysparkRepo/src/Assignment4/util import *
 
+
 if __name__ == "__main__":
     spark = SparkSession.builder.appName("ReadJSON").getOrCreate()
 
