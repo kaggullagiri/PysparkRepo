@@ -5,7 +5,6 @@ def main():
     spark = SparkSession.builder.appName("UserActivityAnalysis").getOrCreate()
     return spark
 
-
 # Create DataFrame
 user_activity_df = create_dataframe(spark)
 
