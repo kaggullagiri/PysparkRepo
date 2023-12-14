@@ -3,7 +3,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
 
-
 def create_employee_df(spark):
     employee_schema = StructType([
         StructField("employee_id", IntegerType(), True),
