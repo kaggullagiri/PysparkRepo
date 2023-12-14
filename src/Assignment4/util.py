@@ -1,4 +1,4 @@
-from pyspark.sql.functions import col, explode, explode_outer, posexplode, current_date, year, month, dayofmonth
+from pyspark.sql.functions import *
 from pyspark.sql.types import *
 
 def read_json_data(spark, file_path):
