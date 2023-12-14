@@ -1,5 +1,5 @@
 from pyspark.sql.functions import col, explode, explode_outer, posexplode, current_date, year, month, dayofmonth
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, ArrayType
+from pyspark.sql.types import *
 
 def read_json_data(spark, file_path):
     df = spark.read.option("multiline", "true").json(file_path)
