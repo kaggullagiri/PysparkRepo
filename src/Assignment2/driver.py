@@ -1,7 +1,6 @@
 from pyspark.sql import SparkSession
 from PysparkRepo/src/Assignment2/util import *
 
-
 # Sample data
 data = [
         ("1234567891234567",),
