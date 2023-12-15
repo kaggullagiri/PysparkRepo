@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
-
+# defining the data
 def create_dataframe(spark):
     data = [
         (1, 101, 'login', '2023-09-05 08:30:00'),
@@ -12,6 +12,7 @@ def create_dataframe(spark):
         (7, 103, 'click', '2023-09-11 10:15:00'),
         (8, 102, 'click', '2023-09-12 13:10:00')
     ]
+    # passing column names
     columns = ['log_id', 'user_id', 'user_activity', 'time_stamp']
     return spark.createDataFrame(data, columns)
     
