@@ -1,49 +1,50 @@
+from pyspark.sql import SparkSession
 from PysparkRepo/src/Assignment5/util import *
 
-spark = SparkSession.builder.appName("Assignment").getOrCreate()
+if __name__ == "__main__":
+    # Create a Spark session
+    spark = SparkSession.builder.appName("CreateDataFrames").getOrCreate()
 
-# Create DataFrames
-employee_df = create_employee_df(spark) 
-department_df = create_department_df(spark)
-country_df = create_country_df(spark)
+    # Define schemas for DataFrames dynamically
+    employee_schema = define_employee_schema()
+    department_schema = define_department_schema()
+    country_schema = define_country_schema()
 
-# 2. Find avg salary of each department
-avg_salary_result = avg_salary_per_department(employee_df)
-avg_salary_result.show()
+    # Create DataFrames using the defined schemas
+    employee_df, department_df, country_df = create_dataframes(spark, employee_schema, department_schema, country_schema)
 
-# 3. Find employee name and department name whose name starts with 'm'
-m_employee_result = employee_name_department_starts_with_m(employee_df)
-m_employee_result.show()
+    # Show the DataFrames
+    show_dataframes(employee_df, department_df, country_df)
 
-# 4. Create another new column as bonus
-bonus_df = add_bonus_column(employee_df)
-bonus_df.show()
+    # Q2: Find the average salary of each department
+    avg_salary_department = calculate_avg_salary(employee_df)
+    avg_salary_department.show()
 
-# 5. Reorder the column names of employee_df
-reordered_df = reorder_columns(employee_df)
-reordered_df.show()
+    # Q3: Find the employee name and department name whose name starts with 'm'
+    employees_start_with_m = find_employees_start_with_m(employee_df)
+    employees_start_with_m.show()
 
-# 6. Inner Join
-inner_join_result = join_dataframes(employee_df, department_df, "inner")
-inner_join_result.show()
+    # Q4: Create another new column 'bonus' by multiplying employee salary * 2
+    employee_df = add_bonus_column(employee_df)
+    employee_df.show()
 
-# 6. Left Join
-left_join_result = join_dataframes(employee_df, department_df, "left")
-left_join_result.show()
+    # Q5: Reorder the column names of employee_df
+    employee_df = reorder_columns(employee_df)
+    employee_df.show()
 
-# 6. Right Join
-right_join_result = join_dataframes(employee_df, department_df, "right")
-right_join_result.show()
+    # Q6: Perform Inner, Left, and Right joins dynamically
+    inner_join, left_join, right_join = perform_joins(employee_df, department_df)
+    inner_join.show()
+    left_join.show()
+    right_join.show()
 
-# 7. Replace state with country name
-country_name_df = replace_state_with_country_name(employee_df, country_df)
-country_name_df.show()
+  # Q7: Deriving a new DataFrame with 'country_name' instead of 'State' in employee_df
+    new_employee_df = derive_new_dataframe(employee_df, country_df)
+    new_employee_df.show()
 
-# 8. Convert column names to lower case
-lower_case_df = convert_column_names_to_lower_case(country_name_df)
-lower_case_df.show()
+    # Q8: Converting all column names into lowercase and add a 'load_date' column with the current date
+    final_df = convert_columns_and_add_load_date(new_employee_df)
+    final_df.show()
 
-# 9. Add load_date column
-result_with_load_date = add_load_date_column(lower_case_df)
-result_with_load_date.show()
-
+    # Q9: Creating the external tables with Parquet and CSV formats
+    create_external_tables(final_df)
