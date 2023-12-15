@@ -1,5 +1,5 @@
-from pyspark.sql.functions import udf, col
-from pyspark.sql.types import StringType
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
 
 def mask_card_number(card_num):
     return '*' * 12 + card_num[-4:]
