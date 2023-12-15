@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 # defining the data
-def create_dataframe(spark):
+def create_dataframe(spark): 
     data = [
         (1, 101, 'login', '2023-09-05 08:30:00'),
         (2, 102, 'click', '2023-09-06 12:45:00'),
