@@ -11,9 +11,11 @@ data = [
 ]
 
 # Create DataFrame
-credit_card_df = spark.createDataFrame(data, ["card_number"])
 
-credit_card_df = spark.read.csv('dbfs:/path/src/file.csv', header=False, inferSchema=True)
+credit_card_df = spark.read.csv('dbfs:/path/src/file.csv', header=False, inferSchema=True).toDF("card_number")
+
+# showing the df 
+
 credit_card_df.show()
 
 # Print number of partitions
