@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-from PysparkRepo/src/Assignment1/util.py import *
+from PysparkRepo/src/Assignment1/util.py import * 
 
 # Sample data
 purchase_data = [(1, "A"), (1, "B"), (2, "A"), (2, "B"), (3, "A"), (3, "B"),
