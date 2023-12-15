@@ -5,7 +5,7 @@ from
 class TestUserActivity(unittest.TestCase):
     def setUp(self):
         self.spark = SparkSession.builder.appName("Test").getOrCreate()
-        self.user_activity_df = create_dataframe(self.spark)
+        self.user_activity_df = create_dataframe(self.spark) 
 
     def tearDown(self):
         self.spark.stop()
