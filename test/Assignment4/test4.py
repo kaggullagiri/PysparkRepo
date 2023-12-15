@@ -16,7 +16,7 @@ class TestUtils(unittest.TestCase):
     def test_get_record_count(self):
         record_count = get_record_count(self.df)
         self.assertIsInstance(record_count, int)
-        self.assertGreaterEqual(record_count, 0)
+        self.assertGreaterEqual(record_count, 0) 
 
     def test_flatten_json_data(self):
         flattened_df = flatten_json_data(self.df)
